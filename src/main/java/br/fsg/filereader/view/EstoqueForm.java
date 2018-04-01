@@ -38,7 +38,7 @@ public class EstoqueForm extends javax.swing.JDialog {
 	}
 
 
-	// <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -67,6 +67,7 @@ public class EstoqueForm extends javax.swing.JDialog {
         lbTotalEstoque.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbTotalEstoque.setText("R$ 1.000.000,00");
 
+        btCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/save.png"))); // NOI18N
         btCarregar.setText("Carregar");
         btCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +187,7 @@ public class EstoqueForm extends javax.swing.JDialog {
     }
 
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCarregar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

@@ -1,5 +1,11 @@
 package br.fsg.filereader.view;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
 import br.fsg.filereader.util.PersistenceManager;
 
 /**
@@ -12,6 +18,8 @@ public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
+        Image imagem = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/logo-icon.png"));
+        this.setIconImage(imagem);
         setExtendedState(MAXIMIZED_BOTH);
         this.loadDatabase();
         setVisible(true);
@@ -22,7 +30,15 @@ public class Principal extends javax.swing.JFrame {
 	}
 
 	public static void main(String[] args) {
-        new Principal();
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+			 new Principal();
+		} catch (Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro ao carregar aplicação");
+			System.exit(0);
+		}
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

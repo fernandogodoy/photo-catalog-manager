@@ -3,12 +3,12 @@ package br.fsg.filereader.view;
 import java.nio.file.Paths;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import br.fsg.filereader.controller.ProductController;
 import br.fsg.filereader.model.Directory;
 import br.fsg.filereader.tablemodel.BuscaDirectoryTableModel;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -167,7 +167,9 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
     private void findDirectory() {
     	BuscaForm<Directory> buscaForm = new BuscaForm<>(new BuscaDirectoryTableModel());
     	Directory directory = buscaForm.getSelected();
-    	tfNuvem.setText(directory.getDescription());
+    	if(directory != null) {
+    		tfNuvem.setText(directory.getDescription());
+    	}
     }
     
     private void openFindDirectory(JTextField textField) {

@@ -1,8 +1,10 @@
 package br.fsg.filereader.view;
 
 import java.io.File;
+
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
+
 import org.apache.commons.lang3.StringUtils;
 
 /**
