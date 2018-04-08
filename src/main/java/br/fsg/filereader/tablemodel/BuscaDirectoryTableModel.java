@@ -24,7 +24,7 @@ public class BuscaDirectoryTableModel extends GenericTableModel<Directory> {
 		case 0:
 			return directory.getId();
 		case 1:
-			return directory.getDescription();
+			return directory.getPath().getFileName();
 		case 2:
 			return directory.getValue().getFormated();
 		}

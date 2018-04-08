@@ -9,7 +9,7 @@ import br.fsg.filereader.repository.SaleRepository;
 import br.fsg.filereader.repository.SaleRepositoryImpl;
 
 public class SaleController {
-	
+
 	private SaleRepository repository = new SaleRepositoryImpl();
 
 	public void save(Sale sale) {
@@ -20,5 +20,19 @@ public class SaleController {
 		DateTimeFormatter pattern = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		return repository.findbyPeriodo(LocalDate.parse(inicio, pattern), LocalDate.parse(fim, pattern));
 	}
-	
+
+	public Sale findById(Long idVenda) {
+		return repository.find(idVenda);
+	}
+
+	public void delete(Sale sale) {
+		sale.clearList();
+		repository.delete(sale);
+	}
+
+	public void delivered(Sale sale) {
+		sale.delivered();
+		repository.update(sale);
+	}
+
 }

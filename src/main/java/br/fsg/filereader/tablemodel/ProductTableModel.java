@@ -21,7 +21,7 @@ public class ProductTableModel extends GenericTableModel<Product> {
 		case 0:
 			return product.getId();
 		case 1:
-			return product.getDirectoryDescrition();
+			return product.getDirectory().getPath().getFileName();
 		case 2:
 			return product.getDataCompra().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		case 3:

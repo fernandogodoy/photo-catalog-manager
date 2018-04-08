@@ -77,6 +77,10 @@ public class Product implements Serializable {
 		return status;
 	}
 
+	public boolean isReservado() {
+		return this.status == Status.RESERVADO;
+	}
+
 	public Directory getDirectory() {
 		return directory;
 	}
@@ -109,4 +113,10 @@ public class Product implements Serializable {
 	public void saled() {
 		this.status = Status.VENDIDO;
 	}
+
+	public void cancel() {
+		this.provide();
+		this.setSale(null);
+	}
+
 }

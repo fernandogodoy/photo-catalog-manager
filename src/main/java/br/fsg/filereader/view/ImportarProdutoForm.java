@@ -14,13 +14,13 @@ import br.fsg.filereader.tablemodel.BuscaDirectoryTableModel;
  *
  * @author Fernando-Godoy
  */
-public class ImportarArquivosForm extends javax.swing.JDialog {
+public class ImportarProdutoForm extends javax.swing.JDialog {
 
     private static final long serialVersionUID = 1L;
 
-    private static final String NAME = "Importador de Arquivos";
+    private static final String NAME = "Importador de Fotos";
 
-    public ImportarArquivosForm() {
+    public ImportarProdutoForm() {
         initComponents();
         this.setModal(true);
         this.setName(NAME);
@@ -30,7 +30,7 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
     }
 
     private void enableFields() {
-        tfLocal.setEnabled(false);
+        tfProduto.setEnabled(false);
         tfNuvem.setEnabled(false);
     }
 
@@ -39,7 +39,7 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        tfLocal = new javax.swing.JTextField();
+        tfProduto = new javax.swing.JTextField();
         btBuscarLocal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         tfNuvem = new javax.swing.JTextField();
@@ -50,9 +50,9 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel1.setText("Diretório Local:");
+        jLabel1.setText("Foto do Produto:");
 
-        tfLocal.setColumns(50);
+        tfProduto.setColumns(50);
 
         btBuscarLocal.setText("Selecione");
         btBuscarLocal.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,7 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(tfLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(13, 13, 13)
                                 .addComponent(btBuscarLocal))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -109,7 +109,7 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tfLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btBuscarLocal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -152,7 +152,7 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
 	private void importar() {
 		try {
 			ProductController controller = new ProductController();
-			controller.save(Paths.get(tfLocal.getText()), Paths.get(tfNuvem.getText()));
+			controller.save(Paths.get(tfProduto.getText()), Paths.get(tfNuvem.getText()));
 			JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
 			this.dispose();
 		} catch (Exception e) {
@@ -161,7 +161,7 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
 	}
 
     private void btBuscarLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarLocalActionPerformed
-        openFindDirectory(tfLocal);
+        openFindProduct(tfProduto);
     }//GEN-LAST:event_btBuscarLocalActionPerformed
 
     private void findDirectory() {
@@ -172,9 +172,9 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
     	}
     }
     
-    private void openFindDirectory(JTextField textField) {
+    private void openFindProduct(JTextField textField) {
         SeletorArquivoForm seletor = new SeletorArquivoForm();
-        seletor.openSeletor(textField, JFileChooser.DIRECTORIES_ONLY);
+        seletor.openSeletor(textField, JFileChooser.FILES_ONLY);
     }
 
 
@@ -185,7 +185,7 @@ public class ImportarArquivosForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField tfLocal;
     private javax.swing.JTextField tfNuvem;
+    private javax.swing.JTextField tfProduto;
     // End of variables declaration//GEN-END:variables
 }

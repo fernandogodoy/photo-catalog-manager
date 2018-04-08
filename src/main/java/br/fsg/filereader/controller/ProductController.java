@@ -18,7 +18,7 @@ public class ProductController {
 	private ProductRepository repository = new ProductRepositoryImpl();
 	private DirectoryRepository directoryRepository = new DirectoryRepositoryImpl();
 
-	public void save(Path source, Path target) {
+	public void saveAll(Path source, Path target) {
 		Directory directory = directoryRepository.findByPath(target);
 		List<File> allFiles = Arrays.asList(source.toFile().listFiles());
 
@@ -28,6 +28,13 @@ public class ProductController {
 			repository.save(product, file);
 		}
 	}
+        
+        public void save(Path image, Path target){
+            Directory directory = directoryRepository.findByPath(target);
+            UUID uuid = UUID.randomUUID();
+            Product product = new Product(uuid.toString(), directory.getValue(), directory);
+            repository.save(product, image.toFile());
+        }
 
 	public void deleteAll() {
 		repository.deleteAll();
@@ -51,6 +58,11 @@ public class ProductController {
 	public List<Product> findAll() {
 		return repository.findAll();
 		
+	}
+
+	public void cancel(Product product) {
+		product.cancel();
+		repository.update(product);
 	}
 
 }

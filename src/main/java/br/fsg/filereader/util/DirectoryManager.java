@@ -18,6 +18,8 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import br.fsg.filereader.exception.FileProductNotFoundException;
+
 public class DirectoryManager {
 
 	private static final Logger LOG = LogManager.getLogger(DirectoryManager.class);
@@ -72,6 +74,7 @@ public class DirectoryManager {
 			FileUtils.moveFileToDirectory(source.toFile(), target.toFile(), true);
 		} catch (IOException e) {
 			LOG.info("Move File Error", e);
+			throw new FileProductNotFoundException();
 		}
 	}
 
@@ -113,6 +116,7 @@ public class DirectoryManager {
 			Files.delete(path);
 		} catch (IOException e) {
 			LOG.info("Error on delete " + path.toString(), e);
+			throw new FileProductNotFoundException();
 		}
 
 	}

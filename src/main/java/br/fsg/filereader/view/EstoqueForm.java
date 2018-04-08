@@ -1,6 +1,8 @@
 package br.fsg.filereader.view;
 
+import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -33,6 +35,7 @@ public class EstoqueForm extends javax.swing.JDialog {
 
    
     private void resertFields() {
+    	tableModel.clear();
 		this.lbQuantidadeEstoque.setText("0");
 		this.lbTotalEstoque.setText(new Money(BigDecimal.ZERO).getFormated());
 	}
@@ -122,6 +125,11 @@ public class EstoqueForm extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbProdutosEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbProdutosEstoqueMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbProdutosEstoque);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -169,8 +177,21 @@ public class EstoqueForm extends javax.swing.JDialog {
        loadProducts();
     }//GEN-LAST:event_btCarregarActionPerformed
 
+    private void tbProdutosEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProdutosEstoqueMouseClicked
+       viewImage(evt);
+    }//GEN-LAST:event_tbProdutosEstoqueMouseClicked
+
     
-    private void loadProducts() {
+    private void viewImage(MouseEvent evt) {
+		if(evt.getClickCount() == 2) {
+			Product product = this.tableModel.getElements().get(tbProdutosEstoque.getSelectedRow());
+			new VisualizarProdutoForm(Paths.get(product.getDirectoryDescrition()).resolve(product.getFileName()));
+		}
+	}
+
+
+	private void loadProducts() {
+    	resertFields();
 		ProductController controller = new ProductController();
 		List<Product> all = controller.findAll();
 		tableModel.addElements(all);
@@ -180,9 +201,9 @@ public class EstoqueForm extends javax.swing.JDialog {
 		lbTotalEstoque.setText(sum(all).getFormated());
 	}
     
-    private Money sum(List<Product> prods) {
+	private Money sum(List<Product> prods) {
     	Money total = new Money();
-    	prods.parallelStream().map(Product::getValue).forEach(total::plus);
+    	prods.stream().map(Product::getValue).forEach(total::plus);
     	return total;
     }
 

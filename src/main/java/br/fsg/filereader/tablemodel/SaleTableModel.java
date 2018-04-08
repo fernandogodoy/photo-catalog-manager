@@ -21,6 +21,8 @@ public class SaleTableModel extends GenericTableModel<Sale> {
 			return sale.getQuantity();
 		case 3:
 			return sale.getAmount().getFormated();
+		case 4:
+			return sale.getStatus().toString();
 		}
 		return sale;
 	}
@@ -32,7 +34,7 @@ public class SaleTableModel extends GenericTableModel<Sale> {
 
 	@Override
 	String[] getColunms() {
-		return new String[] { "Cliente", "Data", "Número Itens", "Valor" };
+		return new String[] { "Cliente", "Data", "Número Itens", "Valor", "Situaçao" };
 	}
 
 }
