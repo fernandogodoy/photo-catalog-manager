@@ -9,7 +9,7 @@ public interface DirectoryRepository extends Repository<Directory> {
 	Directory findByPath(Path target);
 
 	void deleteAll();
-	
+
 	void delete(Path path);
-	
+
 }

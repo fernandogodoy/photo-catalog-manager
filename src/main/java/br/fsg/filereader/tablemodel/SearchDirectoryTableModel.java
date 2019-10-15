@@ -7,7 +7,7 @@ import br.fsg.filereader.model.Directory;
  *
  * @author Fernando-Godoy
  */
-public class BuscaDirectoryTableModel extends GenericTableModel<Directory> {
+public class SearchDirectoryTableModel extends GenericTableModel<Directory> {
 
 	private static final long serialVersionUID = 1L;
 

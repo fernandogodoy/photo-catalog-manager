@@ -6,23 +6,23 @@ import javax.persistence.Persistence;
 
 public class PersistenceManager {
 
-    private static EntityManagerFactory entityManagerFactory;
-    private static EntityManager entityManager;
+	private static EntityManagerFactory entityManagerFactory;
+	private static EntityManager entityManager;
 
-    static {
-        entityManagerFactory = Persistence.createEntityManagerFactory("fileManagerPU");
-    }
-    
-    public static EntityManager getEntityManager() {
-    	if(entityManager == null) {
-    		entityManager = entityManagerFactory.createEntityManager();
-    	}
-        return entityManager;
-    }
+	static {
+		entityManagerFactory = Persistence.createEntityManagerFactory("photoCatalogManagerPU");
+	}
 
-    public static void main(String[] args) {
-        new PersistenceManager();
-        System.exit(0);
-    }
+	public static EntityManager getEntityManager() {
+		if (entityManager == null) {
+			entityManager = entityManagerFactory.createEntityManager();
+		}
+		return entityManager;
+	}
+
+	public static void main(String[] args) {
+		new PersistenceManager();
+		System.exit(0);
+	}
 
 }

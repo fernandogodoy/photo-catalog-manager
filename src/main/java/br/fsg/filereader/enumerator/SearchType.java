@@ -7,7 +7,7 @@ import br.fsg.filereader.repository.DirectoryRepositoryImpl;
 import br.fsg.filereader.repository.ProductRepositoryImpl;
 import br.fsg.filereader.repository.Repository;
 import br.fsg.filereader.repository.SaleRepositoryImpl;
-import br.fsg.filereader.tablemodel.BuscaDirectoryTableModel;
+import br.fsg.filereader.tablemodel.SearchDirectoryTableModel;
 import br.fsg.filereader.tablemodel.GenericTableModel;
 import br.fsg.filereader.tablemodel.ProductTableModel;
 import br.fsg.filereader.tablemodel.SaleTableModel;
@@ -17,7 +17,7 @@ public enum SearchType {
 	DIRECTORY {
 		@Override
 		public GenericTableModel<Directory> getTableModel() {
-			return new BuscaDirectoryTableModel();
+			return new SearchDirectoryTableModel();
 		}
 
 		@Override
@@ -25,7 +25,6 @@ public enum SearchType {
 			return new DirectoryRepositoryImpl();
 		}
 	},
-	
 	PRODUCT {
 		@Override
 		public GenericTableModel<Product> getTableModel() {
@@ -36,7 +35,8 @@ public enum SearchType {
 		public Repository<?> getRepository() {
 			return new ProductRepositoryImpl();
 		}
-	}, SALE {
+	},
+	SALE {
 		@Override
 		public GenericTableModel<Sale> getTableModel() {
 			return new SaleTableModel();
@@ -49,7 +49,7 @@ public enum SearchType {
 	};
 
 	public abstract GenericTableModel<?> getTableModel();
-	
+
 	public abstract Repository<?> getRepository();
 
 }

@@ -28,19 +28,19 @@ public class ProductController {
 			repository.save(product, file);
 		}
 	}
-        
-        public void save(Path image, Path target){
-            Directory directory = directoryRepository.findByPath(target);
-            UUID uuid = UUID.randomUUID();
-            Product product = new Product(uuid.toString(), directory.getValue(), directory);
-            repository.save(product, image.toFile());
-        }
+
+	public void save(Path image, Path target) {
+		Directory directory = directoryRepository.findByPath(target);
+		UUID uuid = UUID.randomUUID();
+		Product product = new Product(uuid.toString(), directory.getValue(), directory);
+		repository.save(product, image.toFile());
+	}
 
 	public void deleteAll() {
 		repository.deleteAll();
-		
+
 	}
-	
+
 	public void delete(Product product) {
 		repository.delete(product);
 	}
@@ -49,7 +49,7 @@ public class ProductController {
 		product.reserve();
 		repository.update(product);
 	}
-	
+
 	public void provide(Product product) {
 		product.provide();
 		repository.update(product);
@@ -57,7 +57,7 @@ public class ProductController {
 
 	public List<Product> findAll() {
 		return repository.findAll();
-		
+
 	}
 
 	public void cancel(Product product) {

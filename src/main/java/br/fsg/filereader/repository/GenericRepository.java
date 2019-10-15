@@ -23,13 +23,13 @@ public abstract class GenericRepository<Entity extends Serializable> implements 
 	private final EntityManager entityManager = PersistenceManager.getEntityManager();
 
 	@SuppressWarnings("unchecked")
-	private final Class<Entity> clazz = (Class<Entity>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-
+	private final Class<Entity> clazz = (Class<Entity>) ((ParameterizedType) getClass().getGenericSuperclass())
+			.getActualTypeArguments()[0];
 
 	private EntityTransaction getTransaction() {
 		return entityManager.getTransaction();
 	}
-	
+
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}

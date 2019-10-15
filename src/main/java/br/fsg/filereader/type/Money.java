@@ -56,12 +56,12 @@ public class Money implements Serializable {
 	public String getFormated() {
 		return formatter.format(value);
 	}
-	
+
 	public Money plus(Money money) {
 		this.value = this.value.add(money.value);
 		return this;
 	}
-	
+
 	public Money minus(Money money) {
 		this.value = this.value.subtract(money.value);
 		return this;

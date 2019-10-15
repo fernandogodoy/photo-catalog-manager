@@ -133,10 +133,16 @@ public class Sale implements Serializable {
 			this.sale.address = endereco;
 			return this;
 		}
+		
+		public Builder withId(Long id) {
+			this.sale.id = id;
+			return this;
+		}
 
 		public Sale build() {
 			return sale;
 		}
+	
 	}
 
 	public void clearList() {

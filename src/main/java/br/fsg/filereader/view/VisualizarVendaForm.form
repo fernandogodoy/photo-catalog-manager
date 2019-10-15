@@ -83,24 +83,16 @@
                           <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lbQuantidade" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbValor" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbData" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbCliente" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbStatus" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="lbEndereco" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="583" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="lbQuantidade" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbValor" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbData" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbCliente" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbStatus" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbEndereco" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -237,7 +229,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="756" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>

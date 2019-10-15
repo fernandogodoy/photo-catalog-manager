@@ -3,7 +3,7 @@ package br.fsg.filereader.view;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-import br.fsg.filereader.controller.BuscaController;
+import br.fsg.filereader.controller.SearchController;
 import br.fsg.filereader.tablemodel.GenericTableModel;
 
 /**
@@ -139,7 +139,7 @@ public class BuscaForm<T> extends javax.swing.JDialog {
 	private void findByName() {
 		cleanTable();
 		String texto = tfNome.getText();
-		BuscaController controller = new BuscaController();
+		SearchController controller = new SearchController();
 
 		switch (tableModel.getSearchType()) {
 		case DIRECTORY:

@@ -34,6 +34,7 @@ public class VisualizarVendaForm extends javax.swing.JDialog {
 	private ConfigurationController configControl = new ConfigurationController();
 	private Configuration configuration;
 	private Sale sale;
+	public boolean isEdit = false;
 	
 	public VisualizarVendaForm(Long idVenda) {
         initComponents();
@@ -68,6 +69,7 @@ public class VisualizarVendaForm extends javax.swing.JDialog {
 		tbProdutos.setEnabled(sale.isReserved());
 		tbProdutos.updateUI();
 		btConfirma.setEnabled(sale.isReserved());
+		btCancela.setEnabled(sale.isReserved());
 	}
 
 
@@ -142,20 +144,15 @@ public class VisualizarVendaForm extends javax.swing.JDialog {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
                         .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbQuantidade)
-                            .addComponent(lbValor)
-                            .addComponent(lbData)
-                            .addComponent(lbCliente)
-                            .addComponent(lbStatus))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbEndereco)
-                        .addGap(583, 583, 583))))
+                    .addComponent(lbQuantidade)
+                    .addComponent(lbValor)
+                    .addComponent(lbData)
+                    .addComponent(lbCliente)
+                    .addComponent(lbStatus)
+                    .addComponent(lbEndereco))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +210,7 @@ public class VisualizarVendaForm extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(

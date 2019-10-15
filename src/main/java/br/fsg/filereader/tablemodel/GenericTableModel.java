@@ -15,6 +15,7 @@ public abstract class GenericTableModel<T> extends AbstractTableModel {
 	private List<T> elements = new ArrayList<>();
 
 	public abstract SearchType getSearchType();
+
 	abstract String[] getColunms();
 
 	public void addElements(List<T> elements) {
@@ -24,11 +25,11 @@ public abstract class GenericTableModel<T> extends AbstractTableModel {
 	public void addElement(T element) {
 		this.elements.add(element);
 	}
-	
+
 	public void removeElement(T element) {
 		this.elements.remove(element);
 	}
-	
+
 	public void clear() {
 		this.elements.clear();
 	}
@@ -37,7 +38,7 @@ public abstract class GenericTableModel<T> extends AbstractTableModel {
 	public int getColumnCount() {
 		return getColunms().length;
 	}
-	
+
 	@Override
 	public String getColumnName(int column) {
 		return getColunms()[column];

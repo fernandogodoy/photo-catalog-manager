@@ -14,18 +14,18 @@ import br.fsg.filereader.type.Money;
  */
 public class DirectoryController {
 
-    private final DirectoryRepository repository = new DirectoryRepositoryImpl();
+	private final DirectoryRepository repository = new DirectoryRepositoryImpl();
 
-    public void salvar(Path path, String fileName, String valor) {
-        Directory directory = new Directory();
-        directory.withDescrition(path, fileName).withValue(new Money(valor));
-        repository.save(directory);
-    }
+	public void salvar(Path path, String fileName, String valor) {
+		Directory directory = new Directory();
+		directory.withDescrition(path, fileName).withValue(new Money(valor));
+		repository.save(directory);
+	}
 
 	public void deleteAll() {
 		repository.deleteAll();
 	}
-	
+
 	public void delete(String path) {
 		repository.delete(Paths.get(path));
 	}

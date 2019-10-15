@@ -13,7 +13,11 @@ public class SaleController {
 	private SaleRepository repository = new SaleRepositoryImpl();
 
 	public void save(Sale sale) {
-		repository.save(sale);
+		if(sale.getId() != null) {
+			repository.update(sale);
+		}else {
+			repository.save(sale);
+		}
 	}
 
 	public List<Sale> findByPeriodo(String inicio, String fim) {

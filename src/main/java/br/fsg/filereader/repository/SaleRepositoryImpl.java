@@ -16,7 +16,7 @@ public class SaleRepositoryImpl extends GenericRepository<Sale> implements SaleR
 
 	@Override
 	public List<Sale> findbyPeriodo(LocalDate init, LocalDate fim) {
-		return getEntityManager().createQuery("FROM Sale o WHERE o.date BETWEEN :initialDate AND :finalDate", Sale.class)
+		return getEntityManager().createQuery("FROM Sale o WHERE o.date BETWEEN :initialDate AND :finalDate ORDER BY o.date", Sale.class)
 				.setParameter("initialDate", init)
 				.setParameter("finalDate", fim)
 				.getResultList();

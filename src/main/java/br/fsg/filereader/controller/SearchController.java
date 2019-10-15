@@ -12,11 +12,11 @@ import br.fsg.filereader.repository.ProductRepository;
 import br.fsg.filereader.repository.ProductRepositoryImpl;
 import br.fsg.filereader.repository.Repository;
 
-public class BuscaController {
-	
+public class SearchController {
+
 	private DirectoryRepository directoryRepository = new DirectoryRepositoryImpl();
 	private ProductRepository productRepository = new ProductRepositoryImpl();
-	
+
 	public List<Directory> findDirectoryByName(String texto) {
 		return executeSearch(texto, directoryRepository);
 	}
@@ -24,12 +24,12 @@ public class BuscaController {
 	public List<Product> findProductByName(String texto) {
 		return executeSearch(texto, productRepository);
 	}
-	
+
 	private <T> List<T> executeSearch(String texto, Repository<T> repository) {
-		if(StringUtils.isBlank(texto)) {
+		if (StringUtils.isBlank(texto)) {
 			return repository.findAll();
 		}
 		return repository.findByName(texto);
 	}
-	
+
 }

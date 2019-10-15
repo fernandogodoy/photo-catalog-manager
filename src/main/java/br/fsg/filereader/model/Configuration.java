@@ -12,7 +12,7 @@ import javax.persistence.SequenceGenerator;
 import org.apache.commons.lang3.StringUtils;
 
 @Entity
-@SequenceGenerator(name = "config_generator", sequenceName= "config_seq", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name = "config_generator", sequenceName = "config_seq", initialValue = 1, allocationSize = 1)
 public class Configuration implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -20,11 +20,12 @@ public class Configuration implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "config_generator")
 	private Long id;
-	
+
 	private String drivePath;
-        
-	public Configuration() {}
-	
+
+	public Configuration() {
+	}
+
 	public Configuration(String drivePath) {
 		this.drivePath = drivePath;
 	}
@@ -37,7 +38,8 @@ public class Configuration implements Serializable {
 		return drivePath;
 	}
 
-    public String getReservedPath() {
-        return StringUtils.isNotBlank(drivePath) ? Paths.get(drivePath).resolve("reservado").toString(): StringUtils.EMPTY;
-    }
+	public String getReservedPath() {
+		return StringUtils.isNotBlank(drivePath) ? Paths.get(drivePath).resolve("reservado").toString()
+				: StringUtils.EMPTY;
+	}
 }

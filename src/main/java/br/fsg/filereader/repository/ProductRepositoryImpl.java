@@ -22,7 +22,7 @@ public class ProductRepositoryImpl extends GenericRepository<Product> implements
 		Product product = null;
 
 		try {
-			product = getEntityManager().createQuery("FROM Product o WHERE o.uuid = :uuid", Product.class)
+			product = getEntityManager().createQuery("FROM Product o WHERE o.uuid = :uuid ORDER BY o.id", Product.class)
 					.setParameter("uuid", uuid)
 					.getSingleResult();
 		} catch (NoResultException e) {

@@ -26,7 +26,7 @@ public class DirectoryRepositoryImpl extends GenericRepository<Directory> implem
 
 		try {
 			directory = getEntityManager()
-					.createQuery("FROM Directory o WHERE o.description = :description ", Directory.class)
+					.createQuery("FROM Directory o WHERE o.description = :description ORDER BY o.id", Directory.class)
 					.setParameter("description", path)
 					.getSingleResult();
 

@@ -16,7 +16,7 @@ public class ProductTableModel extends GenericTableModel<Product> {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		Product product = getElements().get(rowIndex);
-		
+
 		switch (columnIndex) {
 		case 0:
 			return product.getId();

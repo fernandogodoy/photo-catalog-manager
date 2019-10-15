@@ -30,16 +30,21 @@ public class HistoricoForm extends javax.swing.JDialog {
 		tbHistorico.setModel(dataModel);
         tbHistorico.updateUI();
         resetFields();
-        this.setVisible(true);
     }
 
-    private void resetFields() {
+    public HistoricoForm(String dtInicio, String dtFim) {
+		this();
+		tfInicio.setText(dtInicio);
+		tfFim.setText(dtFim);
+		carregarHistorico();
+	}
+
+	private void resetFields() {
 		lbItensVendidos.setText("0");
 		lbVendaPeriodo.setText("0");
 		lbTotalVendido.setText(new Money().getFormated());
 		tfInicio.setText(LocalDate.now().format(formatter));
 		tfFim.setText(LocalDate.now().format(formatter));
-		
 	}
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -249,15 +254,19 @@ public class HistoricoForm extends javax.swing.JDialog {
     	int clickCount = evt.getClickCount();
     	if(clickCount == 2) {
     		Sale sale = dataModel.getElements().get(tbHistorico.getSelectedRow());
-    		new VisualizarVendaForm(sale.getId());
-    		new HistoricoForm();
+    		VisualizarVendaForm vendaForm = new VisualizarVendaForm(sale.getId());
     		this.dispose();
+    		if(!vendaForm.isEdit) {
+    			HistoricoForm form = new HistoricoForm(tfInicio.getText(), tfFim.getText());
+    			form.setVisible(true);
+    		}
     	}
 	}
 
-	private void carregarHistorico() {
+	public void carregarHistorico() {
 		SaleController saleController = new SaleController();
 		List<Sale> sales = saleController.findByPeriodo(tfInicio.getText(), tfFim.getText());
+		dataModel.clear();
 		dataModel.addElements(sales);
 		tbHistorico.setModel(dataModel);
 		tbHistorico.updateUI();

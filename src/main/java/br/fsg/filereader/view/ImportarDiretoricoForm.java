@@ -8,7 +8,7 @@ import javax.swing.JTextField;
 
 import br.fsg.filereader.controller.ProductController;
 import br.fsg.filereader.model.Directory;
-import br.fsg.filereader.tablemodel.BuscaDirectoryTableModel;
+import br.fsg.filereader.tablemodel.SearchDirectoryTableModel;
 
 /**
  *
@@ -165,7 +165,7 @@ public class ImportarDiretoricoForm extends javax.swing.JDialog {
     }//GEN-LAST:event_btBuscarLocalActionPerformed
 
     private void findDirectory() {
-    	BuscaForm<Directory> buscaForm = new BuscaForm<>(new BuscaDirectoryTableModel());
+    	BuscaForm<Directory> buscaForm = new BuscaForm<>(new SearchDirectoryTableModel());
     	Directory directory = buscaForm.getSelected();
     	if(directory != null) {
     		tfNuvem.setText(directory.getDescription());
