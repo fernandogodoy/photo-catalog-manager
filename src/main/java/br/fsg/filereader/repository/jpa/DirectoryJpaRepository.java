@@ -12,8 +12,8 @@ import java.util.Optional;
 @Repository
 public interface DirectoryJpaRepository extends JpaRepository<Directory, Long> {
     
-    @Query("SELECT d FROM Directory d WHERE d.path = :path")
-    Optional<Directory> findByPath(@Param("path") String path);
+    @Query("SELECT d FROM Directory d WHERE d.description = :description")
+    Optional<Directory> findByDescription(@Param("description") String description);
     
     List<Directory> findByDescriptionContaining(String description);
 }
