@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: photo-catalog-manager
+  
+  # Database configuration
+  datasource:
+    url: jdbc:sqlite:photoCatalogManager.db
+    driver-class-name: org.sqlite.JDBC
+    
+  jpa:
+    database-platform: org.hibernate.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        
+  # Thymeleaf configuration
+  thymeleaf:
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+    
+  # Web configuration
+  web:
+    resources:
+      static-locations: classpath:/static/,classpath:/imagens/,classpath:/icones/
+      
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    
+logging:
+  level:
+    br.fsg.filereader: INFO
+    org.springframework: INFO
+    org.hibernate: WARN
